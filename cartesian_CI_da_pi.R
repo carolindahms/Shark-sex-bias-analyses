@@ -130,7 +130,6 @@ da_long <- function(df) {
 file_list_o <- list.files(pattern = ".*1D\\.txt$", full.names = TRUE)
 bl<-file_list_o[1:2]
 ind<-file_list_o[3:4]
-
 sv<-file_list_o[5:6]
 
 data_list <- lapply(sv, process_files)
@@ -162,9 +161,6 @@ chagos_sv$pop<-gsub("pop1","Chagos(Silvertips)", chagos_sv$pop)
 chagos_sv$pop<-gsub("pop2","Silvertips", chagos_sv$pop)
 chagos_sv$pop<-gsub("all","Chagos-Silvertips", chagos_sv$pop)
 
-
-pldf<-chagos_bl
-
 bind<-rbind(chagos_bl,chagos_indo, chagos_sv)
 pldf<-bind
 p<-ggplot(pldf[pldf$main_stat=="Qpi"|pldf$main_stat=="Qpi.da",], aes(y = median, x = pop,color=main_stat)) +
@@ -177,14 +173,4 @@ p<-ggplot(pldf[pldf$main_stat=="Qpi"|pldf$main_stat=="Qpi.da",], aes(y = median,
 
 p+ylim(0,0.0015)
 
-
-sv<-ggplot(chagos_sv, aes(y = median, x = pop,color=main_stat)) +
-  geom_errorbar(aes(ymin = CI_lower, ymax = CI_upper), width = 0.1, position = position_dodge(width=0.4)) +
-  geom_point(size = 3, position=position_dodge(width=0.4)) +
-  geom_hline(yintercept = 0.75, linetype = "dashed", color = "grey60") +
-  theme(legend.position = "inside", legend.position.inside = c(0.86,0.82),legend.text = element_text(size = 7),
-        legend.title = element_text(size = 8))+
-  theme_bw() 
-
-sv+ylim(0,0.02)
 
