@@ -6,8 +6,8 @@ set.seed(123)
 nboot <- 10000
 
 # 1. Read data 
-DartSeq <- read.table("AngsdWFst_nomal16.txt", header = TRUE)
-RADseq <- read.table("AngsdWFST_Lest.txt", header = TRUE)
+DartSeq <- read.table("AngsdWFst_dartseq.txt", header = TRUE)
+RADseq <- read.table("AngsdWFST_radseq.txt", header = TRUE)
 
 # 1. Identify basins to compare QFST
 
