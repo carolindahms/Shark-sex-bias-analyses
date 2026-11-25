@@ -45,7 +45,7 @@ pi_results <- pi_data %>%
 
 pi_results[c("Population", "Distance")] <- str_split_fixed(pi_results$POP, "_", 2)
 
-pi_results$Qpi_median_CarMel<-pi_results$Qpi_median/0.938636171 # mean of da (Chagos-C.melanopterus) from 3 distance categories
+pi_results$Qpi_median_CarMel<-pi_results$Qpi_median/0.938636171 # mean of da (Chagos-C.melanopterus) from 3 distance categories as they were highly similar
 pi_results$Qpi_CI_lower_CarMel<-pi_results$Qpi_CI_lower/0.938636171
 pi_results$Qpi_CI_upper_CarMel<-pi_results$Qpi_CI_upper/0.938636171
 
